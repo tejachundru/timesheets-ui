@@ -1,9 +1,7 @@
-import type { InitOptions } from "i18next";
-import i18next from "i18next";
+import i18next, { type InitOptions } from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import type { HttpBackendOptions } from "i18next-http-backend";
-import Backend from "i18next-http-backend";
+import Backend, { type HttpBackendOptions } from "i18next-http-backend";
 
 import en from "./en/translations.json";
 import es from "./es/translations.json";

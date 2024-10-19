@@ -1,3 +1,4 @@
+import type { RootState } from "@/store";
 import {
   createApi,
   fetchBaseQuery,
@@ -6,20 +7,18 @@ import {
   type FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "http://localhost:8000/v1";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   prepareHeaders: (headers, { getState }) => {
-    // TODO: add auth token
     if (process.env.NODE_ENV === "development") {
       console.log("headers", headers, getState());
     }
-    // const token = localStorage.getItem("token"); or
-    // const token = (getState() as RootState).auth.token;
-    // if (token) {
-    //   headers.set("authorization", `Bearer ${token}`);
-    // }
+    const token = (getState() as RootState).user.accessToken;
+    if (token) {
+      headers.set("authorization", `Bearer ${token}`);
+    }
     return headers;
   },
 });

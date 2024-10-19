@@ -1,3 +1,5 @@
+import type { PaginationState } from "@tanstack/react-table";
+
 type StatusCode =
   | `${number}`
   // 1xx Informational - Request received, continuing process
@@ -72,10 +74,13 @@ type StatusCode =
  * primitive value. The type of `T` will be determined by the specific API endpoint being called
  */
 
-export type BaseResponse<T> = {
-  response: {
-    response_code: StatusCode;
-    response_message: string;
-  };
+export type BaseResponse = {
+  code: StatusCode;
+  message: string;
+};
+
+export type BaseResponseWithData<T> = BaseResponse & {
   data: T;
 };
+
+export type PaginationPayload = PaginationState;

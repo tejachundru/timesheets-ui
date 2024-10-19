@@ -7,7 +7,7 @@ type IAppStateSlice = {
 
 const initialState: IAppStateSlice = {
   theme: "light",
-  sidebarOpen: false,
+  sidebarOpen: true,
 };
 
 const themeSlice = createSlice({
@@ -26,5 +26,5 @@ const themeSlice = createSlice({
   },
 });
 
-export const { setTheme } = themeSlice.actions;
+export const { setTheme, setSidebarOpen } = themeSlice.actions;
 export default themeSlice.reducer;

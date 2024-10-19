@@ -1,5 +1,12 @@
 {
   "home": {
-    "greeting": "Hello, world!"
+    "greeting": "Hello, world!",
+    "title": "Home"
+  },
+  "auth": {
+    "login": "Login",
+    "details": "Enter your email below to login to your account",
+    "email": "Email",
+    "password": "Password"
   }
 }

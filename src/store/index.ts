@@ -7,6 +7,7 @@ import {
 
 // ======== Slices ======== //
 import themeSlice from "@/store/slice/theme.slice";
+import userSlice from "@/store/slice/user.slice";
 
 /**
  * Combine all slices into one
@@ -14,6 +15,7 @@ import themeSlice from "@/store/slice/theme.slice";
 const rootReducer = combineReducers({
   // add your reducers here ..
   theme: themeSlice,
+  user: userSlice,
 
   //App service reducer
   [api.reducerPath]: api.reducer,
