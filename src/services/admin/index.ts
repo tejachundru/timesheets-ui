@@ -3,13 +3,17 @@ import getRoles from "./get-roles";
 import getUsers from "./get-users";
 import getTeams from "./get-teams";
 import getProjects from "./get-projects";
+import getTimesheet from "./get-timesheet";
+import createTimesheet from "./create-timesheet";
 
-export const userApi = api.injectEndpoints({
+export const adminApi = api.injectEndpoints({
   endpoints: (build) => ({
     getRoles: getRoles(build),
     getUsers: getUsers(build),
     getTeams: getTeams(build),
     getProjects: getProjects(build),
+    getTimesheet: getTimesheet(build),
+    createTimesheet: createTimesheet(build),
   }),
   overrideExisting: false,
 });
@@ -19,4 +23,6 @@ export const {
   useLazyGetUsersQuery,
   useLazyGetTeamsQuery,
   useLazyGetProjectsQuery,
-} = userApi;
+  useLazyGetTimesheetQuery,
+  useCreateTimesheetMutation,
+} = adminApi;

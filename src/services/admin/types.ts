@@ -43,3 +43,25 @@ export type ITeam = IRole & {
 export type IProject = IRole & {
   description: string;
 };
+
+// "data": {
+//     "id": "bb0fe7e5-4dab-4e11-b725-2ca00857a001",
+//     "user_id": "ea4f473e-0499-428c-8a89-ad01ed4ccabc",
+//     "project_id": "2e79e8b2-e25f-4f7d-a0cc-77dc75cb3eff",
+//     "date": "2022-06-17T11:06:50.369Z",
+//     "work_type": "WFH",
+//     "description": "sample",
+//     "hours": 3,
+//     "updated_at": "2024-10-20T08:09:33.548Z",
+//     "created_at": "2024-10-20T08:09:33.548Z",
+//     "deleted_at": null
+//   }
+
+export type ITimesheet = Omit<IRole, "name"> & {
+  user_id: string;
+  project_id: string;
+  date: string;
+  work_type: string;
+  description: string;
+  hours: number;
+};

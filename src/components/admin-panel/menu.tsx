@@ -1,5 +1,3 @@
-"use client";
-
 import { Ellipsis } from "lucide-react";
 
 import { CollapseMenuButton } from "@/components/admin-panel/collapse-menu-button";

@@ -1,4 +1,5 @@
 import type { RootState } from "@/store";
+import { logoutUser } from "@/store/slice/user.slice";
 import {
   createApi,
   fetchBaseQuery,
@@ -12,9 +13,6 @@ const BASE_URL = "http://localhost:8000/v1";
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   prepareHeaders: (headers, { getState }) => {
-    if (process.env.NODE_ENV === "development") {
-      console.log("headers", headers, getState());
-    }
     const token = (getState() as RootState).user.accessToken;
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
@@ -43,7 +41,8 @@ const baseQueryWithInterceptors: BaseQueryFn<
   const result = await baseQuery(args, api, extraOptions);
 
   if (result.error && result.error.status === 401) {
-    // TODO: handle refresh token
+    // Dispatch refresh token action
+    api.dispatch(logoutUser());
   }
   return result;
 };

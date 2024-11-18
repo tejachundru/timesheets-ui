@@ -1,6 +1,6 @@
 {
   "home": {
-    "greeting": "Hello, world!",
+    "thisMonth": "This month",
     "title": "Home"
   },
   "auth": {

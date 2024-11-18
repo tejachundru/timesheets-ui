@@ -29,7 +29,7 @@ export const getUserDetails = (): IUserState => {
     accessToken: "",
     expiresIn: 0,
     tokenType: "",
-    isAuthenticated: false,
+    isAuthenticated: true,
   };
 };
 
